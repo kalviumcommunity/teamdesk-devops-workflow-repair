@@ -1,18 +1,28 @@
 name: TeamDesk CI
 on:
   push:
-  pull_request:
+branches: 
+- main
+- "fix/**"
+pull_request:
 permissions:
   contents: read
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+cache: npm  
+
+- name: Install dependencies
+        run: npm ci
+
       - name: Check team settings
         run: npm run check:settings
+
       - name: Run unit tests
-        run: npm run test:ci
+        run: npm test
+
