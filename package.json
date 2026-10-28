@@ -5,7 +5,10 @@
   "description": "DevOps Foundations Modules 1 and 2 practical repair lab",
   "scripts": {
     "check:settings": "node scripts/check-settings.js",
-    "test": "node --test"
+    "test": "node --test",
+    "test:ci": "node --test"
   },
-  "engines": { "node": ">=22" }
+  "engines": {
+    "node": ">=22"
+  }
 }
